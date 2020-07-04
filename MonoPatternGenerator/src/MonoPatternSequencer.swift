@@ -1,10 +1,11 @@
 import Foundation
 
 class MonoPatternSequencer {
-   typealias Row = [Bool]
-   typealias Col = [Row]
+   typealias Row = [Bool] // [0,1,0]
+   typealias Col = [Row] // [[0,1],[1,0]]
    /**
     * Creates unique bool sequence at arbitrary length
+    * - Abstract: Create all possible combinations of true and zero on a defined length
     * - Fixme: ⚠️️ for count = 8 this algo creates 554240 variations, which it reduces to 256 after removing dups. it works, but is only efficient at generating mono patterns at dev time
     * - Fixme: ⚠️️ create a faster algo that doesnt produce dups?
     * ## Examples:
@@ -19,22 +20,23 @@ class MonoPatternSequencer {
       return removeDuplicateRows(column: result + [negRow, row]) // append the negative and positive row for completness
    }
 }
+/**
+ * Private helper methods
+ */
 extension MonoPatternSequencer {
    /**
     * Make branch
     */
    private static func makeBranch(col: Col, index: Int) -> Col {
-//      Swift.print("makeBranch index: \(index) col: \(col.count)")
       let cols: [Col] = col.map { (row: Row) in // creates 4 branches from 1 source
-//         Swift.print("row:  \(row)")
          let newCol: Col = iterateOver(row: row) // makes 4 new columns
-//         Swift.print("newCol.count:  \(newCol.count)")
          guard index < row.count - 2 else { return newCol } // if you have reached branching count of the same count as row, stop branching
          return newCol + makeBranch(col: newCol, index: index + 1)
       }
       return cols.flatMap { $0 }
    }
    /**
+    * Run false at one integer over every index
     * ## Examples:
     * iterateOver(row: [1,0,1]) // [[0,0,1], [1,0,0]]
     * Only return rows that hasn't already been set to false (avoids duplicates)
