@@ -20,28 +20,9 @@ class ViewController: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       Swift.print("hello world")
-//      testGenerator()
-      testSequencer()
+      let result = BinarySequencer.sequence(size: 4)
+      Swift.print("result.count:  \(result.count)")
+      result.forEach { print($0) }
    }
    override var prefersStatusBarHidden: Bool { return false }
-}
-extension ViewController {
-   /**
-    * generator
-    */
-   func testGenerator() {
-      let result = MonoPatternGenerator.makeRange(digitCount: 4)
-      Swift.print("result.count:  \(result.count)")
-      //      result.forEach {
-      //         print($0)
-      //      }
-   }
-   /**
-    * sequencer
-    */
-   func testSequencer() {
-      let result = MonoPatternSequencer.sequence(count: 8) // [[0,1], [1,0], [0,0], [1,1]]
-      Swift.print("result.count:  \(result.count)")
-//      result.forEach { print($0) }
-   }
 }

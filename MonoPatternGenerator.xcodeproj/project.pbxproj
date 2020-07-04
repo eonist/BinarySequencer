@@ -10,8 +10,7 @@
 		F18E389324B068CD00F33947 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18E389224B068CD00F33947 /* AppDelegate.swift */; };
 		F18E389C24B068D400F33947 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18E389B24B068D400F33947 /* Assets.xcassets */; };
 		F18E389F24B068D400F33947 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E389D24B068D400F33947 /* LaunchScreen.storyboard */; };
-		F18E38AA24B0D13900F33947 /* MonoPatternSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18E38A924B0D13900F33947 /* MonoPatternSequencer.swift */; };
-		F18E38AC24B0E5E800F33947 /* BoolSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18E38AB24B0E5E800F33947 /* BoolSequencer.swift */; };
+		F18E38AE24B0EA5400F33947 /* BinarySequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18E38AD24B0EA5400F33947 /* BinarySequencer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,8 +19,7 @@
 		F18E389B24B068D400F33947 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F18E389E24B068D400F33947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F18E38A024B068D400F33947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F18E38A924B0D13900F33947 /* MonoPatternSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoPatternSequencer.swift; sourceTree = "<group>"; };
-		F18E38AB24B0E5E800F33947 /* BoolSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolSequencer.swift; sourceTree = "<group>"; };
+		F18E38AD24B0EA5400F33947 /* BinarySequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySequencer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +64,7 @@
 		F18E38A624B06B9100F33947 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				F18E38A924B0D13900F33947 /* MonoPatternSequencer.swift */,
-				F18E38AB24B0E5E800F33947 /* BoolSequencer.swift */,
+				F18E38AD24B0EA5400F33947 /* BinarySequencer.swift */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -142,9 +139,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F18E38AE24B0EA5400F33947 /* BinarySequencer.swift in Sources */,
 				F18E389324B068CD00F33947 /* AppDelegate.swift in Sources */,
-				F18E38AC24B0E5E800F33947 /* BoolSequencer.swift in Sources */,
-				F18E38AA24B0D13900F33947 /* MonoPatternSequencer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
