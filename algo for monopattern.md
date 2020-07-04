@@ -4,10 +4,10 @@
 
 ```swift
 /*1*/
-0111
-1011
-1101
-1110
+0111 // <- move over this 0..3 // 🏀 if value is same as setter, skip
+1011 // <- move over this 0..3
+1101 // <- move over this 0..3
+1110 // <- move over this 0..3
 /*2*/
 0011
 1001
@@ -24,6 +24,47 @@
 0000
 1111
 ```
+
+```swift
+/**
+ * Creates unique bool sequence at arbitrary length
+ */
+func sequence(count: Int) -> Col {
+	let row = Array(repeating: true, count: count) // row with 4 positive bool values
+	let col = Array(repeating: row, count: digitCount) // column with 4 rows
+	return makeBranch(col: baseCol, index: 1)
+}
+/**
+ * Make branch
+ */
+func makeBranch(col: Col, index: Int) -> Col {
+	col.flatMap { row in // creates 4 branches from 1 source
+		let newCol = iterateOver(row) // makes 4 new columns
+		guard index < row.count else { return newCol } // if you have reached branching count of the same count as row, stop branching
+		return newCol + makeBranch(col: newCol, index: index + 1)
+	}
+}
+/**
+ * ## Examples:
+ * iterateOver(row: [1,0,1]) // [[0,0,1], [1,0,0]]
+ * Only return rows that hasn't already been set to false (avoids duplicates)
+ */
+func iterateOver(row: Row) -> Col {
+	var row = row // make copy
+	return (0..<row.count).indicies.compactMap { (i: Int) in
+		if !row[i] {
+			row[i] = false
+			return row
+		}
+		return nil
+	}
+}
+```
+
+0011
+1001
+1100
+0110
 
 ### Test with 3 digits
 ```swift
