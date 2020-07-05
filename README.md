@@ -1,6 +1,3 @@
-# BinarySequencer
-Create all possible combinations of true and false on at a defined length
-
 ### Example:
 ```swift
 BinarySequencer.sequence(size: 4).forEach { print($0) }
